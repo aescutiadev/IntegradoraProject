@@ -5,20 +5,52 @@
 {% block content %}
 <div class="content container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="evento">
-				<img src="{{evento.imagen.url}}" alt="{{evento.name}}" style="max-width: 300px;max-height: 250px"><br>
-				{{evento.name }}<br>
-				{{evento.name}}<br>
-				{{evento.estado}}<br>
-				{{evento.city}}<br>
-				{{evento.descripcion}}<br>
-				{{evento.date}}<br>
-				{{evento.hora}}<br>
-				{{evento.km}}<br>
-				{{evento.time}}<br>
-				{{evento.punto_inicio}}<br>
-				{{evento.costo}}<br>
+		<div class="card col-md-auto" style="margin: auto;margin-bottom: 20px">
+			<div class="evento text-center">
+				<img class="text-center" src="{{evento.imagen.url}}" alt="{{evento.name}}"
+					style="margin: 2%;max-width: 90%; max-height: 400px;padding: 10px"><br>
+
+			</div>
+			<div class="col-md-10 text-left" style="margin:auto;padding: 10px;">
+				<table>
+					<tr>
+						<td>
+							<h4 class="card-title">{{evento.name }}</h4>
+						</td>
+					</tr>
+					<tr>
+						<th>Estado:</th>
+						<td>{{evento.estado}}</td>
+					</tr>
+					<tr>
+						<th>Ciudad:</th>
+						<td>{{evento.city}}</td>
+					</tr>
+					<tr>
+						<th>Descripción: </th>
+						<td>{{evento.descripcion}}</td>
+					</tr>
+					<tr>
+						<th>Fecha: </th>
+						<td>{{evento.date}} {{evento.hora}}</td>
+					</tr>
+					<tr>
+						<th>Kilómetros de recorrido:</th>
+						<td>{{evento.km}}</td>
+					</tr>
+					<tr>
+						<th>Tiempo de recorrido:</th>
+						<td>{{evento.time}}</td>
+					</tr>
+					<tr>
+						<th>Punto de inicio: </th>
+						<td>{{evento.punto_inicio}}</td>
+					</tr>
+					<tr>
+						<th>Costo:</th>
+						<td>${{evento.costo}}</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>

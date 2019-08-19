@@ -11,11 +11,17 @@
 	</ol>
 	<div class="carousel-inner">
 		<div class="carousel-item active">
-			<img class="first-slide" src="{% static 'images/tour-bicicleta-mexico.jpg' %}" alt="First slide">
+			<img class="first-slide" src="{% static 'images/bicit.jpg' %}" alt="First slide">
 			<div class="container">
 				<div class="carousel-caption text-left">
 					<h1 class="event-title">Bici-Tour</h1>
-					<p class="event-description">Eventos</p>
+					<p class="event-description">Déjanos llevarte por las calles de las ciudades
+												 y recorrer su belleza, en un paseo guiado donde te 
+												 acompañaremos a conocer algunos de los puntos más 
+												 emblemáticos del país. Disfruta de la belleza 
+												 cotidiana mientras pedaleas y descubre a través de 
+												 la charla de nuestros guías la historia que edificaciones 
+												 y monumentos tienen guardados.</p>
 				</div>
 			</div>
 		</div>
@@ -24,9 +30,9 @@
 			<div class="container">
 				<div class="carousel-caption">
 					<h1 class="event-title">México</h1>
-					<p class="event-description">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
-						elit non mi porta
-						gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+					<p class="event-description">Quizás eres un viajero en nuestro país, o quizás no, 
+												pero ha llegado el momento en que te aventures a conocer México
+												en un tour en bicicleta por la ciudad del estado que tu elijas.</p>
 				</div>
 			</div>
 		</div>
@@ -99,11 +105,11 @@
 						<img src="{% static 'icons/ic_query_builder_black_18dp.png' %}" alt=""> {{ evento.hora }}</p>
 					<p class="card-text"><img src="{% static 'icons/ic_room_black_24dp.png' %}" alt="">
 						{{ evento.city }} {{ evento.estado }}</p>
-					<p class="card-text"><img src="{% static 'icons/ic_money_off_black_24dp.png' %}" alt="">
+					<p class="card-text">
 						{% if evento.costo == 0.0 %}
-						Gratis
+						<img src="{% static 'icons/ic_money_off_black_24dp.png' %}" alt="">Gratis
 						{% else %}
-						{{ evento.costo }}
+						<img src="{% static 'icons/ic_monetization_on_black_24dp.png' %}" alt="">{{ evento.costo }}
 						{% endif %}
 					</p>
 					<div class="d-flex justify-content-between align-items-center">

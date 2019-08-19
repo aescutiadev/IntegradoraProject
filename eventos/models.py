@@ -62,4 +62,4 @@ class Comentario(models.Model):
 		ordering=["-created"]
 
 	def __str__(self):
-		return self.commet
+		return self.coment
