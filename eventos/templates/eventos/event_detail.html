@@ -6,50 +6,68 @@
 <div class="content container">
 	<div class="row">
 		<div class="card col-md-auto" style="margin: auto;margin-bottom: 20px">
-			<div class="evento text-center">
-				<img class="text-center" src="{{evento.imagen.url}}" alt="{{evento.name}}" style="margin: 2%;max-width: 90%; max-height: 400px;padding: 10px"><br>
-
+			<div class="text-center">
+				<img class="text-center" src="{{evento.imagen.url}}" alt="{{evento.name}}"
+					style="margin: 2%;max-width: 90%; max-height: 400px;padding: 10px"><br>
 			</div>
-			<div class="col-md-10 text-left" style="margin:auto;padding: 10px;">
-				<table>
-					<tr>
-						<td>
+			<div class="col-md-12" style="margin:auto;padding: 10px;">
+				<!-- Tabla en donde se visualiza el contenido -->
+				<table class="table table-responsive table-hover">
+					<tr style="border-top: none">
+						<td colspan="2">
 							<h4 class="card-title">{{evento.name }}</h4>
 						</td>
 					</tr>
 					<tr>
-						<th>Estado:</th>
+						<th scope="row">Estado:</th>
 						<td>{{evento.estado}}</td>
 					</tr>
 					<tr>
-						<th>Ciudad:</th>
+						<th scope="row">Ciudad:</th>
 						<td>{{evento.city}}</td>
 					</tr>
 					<tr>
-						<th>Descripción: </th>
+						<th scope="row">Descripción: </th>
 						<td>{{evento.descripcion}}</td>
 					</tr>
 					<tr>
-						<th>Fecha: </th>
-						<td>{{evento.date}} {{evento.hora}}</td>
+						<th scope="row">Fecha: </th>
+						<td>{{evento.date}} a las {{evento.hora}} hrs</td>
 					</tr>
 					<tr>
-						<th>Kilómetros de recorrido:</th>
+						<th scope="row">Kilómetros de recorrido:</th>
 						<td>{{evento.km}}</td>
 					</tr>
 					<tr>
-						<th>Tiempo de recorrido:</th>
+						<th scope="row">Tiempo de recorrido:</thcla>
 						<td>{{evento.time}}</td>
 					</tr>
 					<tr>
-						<th>Punto de inicio: </th>
+						<th scope="row">Punto de inicio: </th>
 						<td>{{evento.punto_inicio}}</td>
 					</tr>
 					<tr>
-						<th>Costo:</th>
+						<td class="text-center" colspan="2">
+							<div style="overflow:hidden;max-width: 1000px;position: relative;">
+								<iframe width="500px" height="440" src="https://maps.google.com/maps?width=auto&amp;height=440&amp;hl=en&amp;q={{evento.city}}%2C{{evento.estado}}%2C{{evento.punto_inicio}}+(Mapita)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+								</iframe>
+								<div style="position: absolute;min-width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;">
+									<small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by 
+										<a href="https://embedgooglemaps.com/en/">https://embedgooglemaps.com/en/
+										</a> &
+										<a href="https://lasagradafamiliatickets.de/la-sagrada-familia-ticket/"> tickets
+										</a>
+									</small>
+								</div>
+							</div><br />
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">Costo:</th>
 						<td>${{evento.costo}}</td>
 					</tr>
 				</table>
+				<!-- Cierre de tabla de visualización de contenidos -->
 			</div>
 		</div>
 	</div>

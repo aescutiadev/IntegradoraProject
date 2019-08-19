@@ -107,9 +107,9 @@
 						{{ evento.city }} {{ evento.estado }}</p>
 					<p class="card-text">
 						{% if evento.costo == 0.0 %}
-						<img src="{% static 'icons/ic_money_off_black_24dp.png' %}" alt="">Gratis
+						<img src="{% static 'icons/ic_money_off_black_24dp.png' %}" alt=""> Gratis
 						{% else %}
-						<img src="{% static 'icons/ic_monetization_on_black_24dp.png' %}" alt="">{{ evento.costo }}
+						<img src="{% static 'icons/ic_monetization_on_black_24dp.png' %}" alt=""> {{ evento.costo }}
 						{% endif %}
 					</p>
 					<div class="d-flex justify-content-between align-items-center">
