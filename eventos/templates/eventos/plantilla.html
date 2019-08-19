@@ -21,7 +21,7 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 			<img src="{% static 'images/logo2png.png' %}" style="max-width: 300px;max-height: 50px" alt="LOGO">
-			<a class="navbar-brand" href="#">BiciTour</a>
+			<a class="navbar-brand" href="/">BiciTour</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
 				aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -32,28 +32,19 @@
 						<a class="nav-link" href="#">Catálogo completo</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Contacto</a>
+						<a class="nav-link" href="{% url 'Contacto' %}">Contacto</a>
 					</li>
 				</ul>
-				<form class="form-inline mt-2 mt-md-0">
+				<form class="form-inline mt-2 mt-md-0" method="GET">
 					<input class="form-control mr-sm-2" type="text" placeholder="Buscar Evento"
-						aria-label="Buscar Evento">
+						aria-label="Buscar Evento" name="q">
 					<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Buscar</button>
 				</form>
 			</div>
 		</nav>
-		<input type="button" class="btn btn-primary" data-toggle="collapse" value="Hola mundo" data-target="#demo" style="width:100%; margin-top: 18px; border-radius: 0">
-		<div id="demo" class="collapse">
-			<div style="background-color: rgb(35, 96, 211);color:white;padding: 3em">
-				<center>
-					<img src="{% static 'images/logopng.png' %}" alt="LOGO de BiciTour" style="width: 500px;height: 300px;">
-				</center>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-			</div>
-		</div>
 	</header>
 
-	<main role="main">
+	<main role="main" style="background-color: rgb(248, 248, 248)">
 
 
 		{% block carrucel %}
@@ -73,6 +64,10 @@
 
 			{% endblock destacado %}
 
+			{% block estados_list %}
+
+			{% endblock estados_list %}
+
 			<!-- START THE FEATURETTES -->
 
 			<hr class="featurette-divider">
@@ -86,19 +81,85 @@
 		</div><!-- /.container -->
 
 		<!-- FOOTER -->
-		<footer class="container">
-			<p class="float-right"><a href="#">Regresa al encabezado</a></p>
-			<p>&copy; 2019 BiciTur, Equipo. TI 9C </p>
+		<!-- Footer -->
+		<footer class="page-footer font-small unique-color-dark" style="background-color: #fff;margin-bottom: -100px">
+			<div class="container text-center text-md-left mt-5">
+
+				<!-- Grid row -->
+				<div class="row mt-3">
+
+					<!-- Grid column -->
+					<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+						<!-- Content -->
+						<h6 class="text-uppercase font-weight-bold">BiciTour</h6>
+						<hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+						<p>BiciTour es para la visualizacion de eventos etc etc</p>
+
+					</div>
+					<!-- Grid column -->
+					<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+						<!-- Links -->
+						<h6 class="text-uppercase font-weight-bold">Eventos</h6>
+						<hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+						<p>
+							<a href="#!">Lista de eventos</a>
+						</p>
+						<p>
+							<a href="#!">Eventos destacados</a>
+						</p>
+						<p>
+							<a href="#!">Eventos gratuitos</a>
+						</p>
+						<p>
+							<a href="#!">Eventos de pago</a>
+						</p>
+
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+						<!-- Links -->
+						<h6 class="text-uppercase font-weight-bold"><a href="{% url 'Contacto' %}">Contacto</a></h6>
+						<hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+						<p>
+							<i class="fas fa-home mr-3"></i> Morelia, Michoacán</p>
+						<i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+						<p>
+							<i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+
+					</div>
+					<!-- Grid column -->
+
+				</div>
+				<!-- Grid row -->
+
+			</div>
+			<!-- Footer Links -->
+
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">© 2019 Copyright:
+				Equipo BiciTour TI 9C
+			</div>
+			<!-- Copyright -->
+
 		</footer>
+		<!-- Footer -->
 	</main>
 	<!-- My scripts -->
 	<script src="{% static 'js/script.js' %}"></script>
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
 	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
 </body>
 

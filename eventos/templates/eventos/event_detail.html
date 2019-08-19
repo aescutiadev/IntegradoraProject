@@ -1,0 +1,26 @@
+{% extends 'eventos/plantilla.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="content container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="evento">
+				<img src="{{evento.imagen.url}}" alt="{{evento.name}}" style="max-width: 300px;max-height: 250px"><br>
+				{{evento.name }}<br>
+				{{evento.name}}<br>
+				{{evento.estado}}<br>
+				{{evento.city}}<br>
+				{{evento.descripcion}}<br>
+				{{evento.date}}<br>
+				{{evento.hora}}<br>
+				{{evento.km}}<br>
+				{{evento.time}}<br>
+				{{evento.punto_inicio}}<br>
+				{{evento.costo}}<br>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

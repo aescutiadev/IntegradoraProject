@@ -33,7 +33,9 @@ class Estados(models.Model):
 	"""Model definition for Estados."""
 	# TODO: Define fields here
 	nombre = models.CharField(max_length=50, verbose_name="Estado")
-	image = models.ImageField(upload_to='estado', height_field=None, width_field=None, max_length=None)
+	image = models.ImageField(upload_to='estado', height_field=None, width_field=None, max_length=None,blank=True,null=True)
+	created = models.DateTimeField(auto_now_add=True,verbose_name="Creación") # Fecha y tiempo
+	updated = models.DateTimeField(auto_now_add=True,verbose_name="Modificado")
 	class Meta:
 		"""Meta definition for Estados."""
 		verbose_name = 'Estado'
@@ -43,3 +45,21 @@ class Estados(models.Model):
 	def __str__(self):
 		"""Unicode representation of Estados."""
 		return self.nombre
+
+class Comentario(models.Model):
+	"""Model definition for Comentarios."""
+	id = models.AutoField(primary_key=True,verbose_name="Clave")
+	nombre = models.CharField(verbose_name="Nombre", max_length=50)
+	correo = models.CharField(verbose_name="Correo", max_length=100)
+	tel = models.CharField(verbose_name="Teléfono", max_length=50)
+	created = models.DateTimeField(auto_now_add=True,verbose_name="Registrado")
+	coment = models.TextField(verbose_name="Comentarios")
+
+
+	class Meta:
+		verbose_name = 'Comentario'
+		verbose_name_plural = 'Comentarios'
+		ordering=["-created"]
+
+	def __str__(self):
+		return self.commet

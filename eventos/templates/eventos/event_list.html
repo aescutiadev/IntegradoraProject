@@ -11,39 +11,32 @@
 	</ol>
 	<div class="carousel-inner">
 		<div class="carousel-item active">
-			<img class="first-slide" src="{% static 'images/bicitur_morelia.jpg' %}" alt="First slide">
+			<img class="first-slide" src="{% static 'images/tour-bicicleta-mexico.jpg' %}" alt="First slide">
 			<div class="container">
 				<div class="carousel-caption text-left">
+					<h1 class="event-title">Bici-Tour</h1>
+					<p class="event-description">Eventos</p>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img class="second-slide" src="{% static 'images/queen-s-2318675_960_720.jpg' %}" alt="Second slide">
+			<div class="container">
+				<div class="carousel-caption">
+					<h1 class="event-title">México</h1>
+					<p class="event-description">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
+						elit non mi porta
+						gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+				</div>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img class="third-slide" src="{% static 'images/bicitur_morelia.jpg' %}" alt="Third slide">
+			<div class="container">
+				<div class="carousel-caption text-right">
 					<h1 class="event-title">Morelia</h1>
 					<p class="event-description">Morelia es el mejor lugar para andar en bicicleta todos los días se
 						puede dar una visita en el centro de la ciudad en bicicleta</p>
-					<p><a class="btn btn-lg btn-primary" href="#" role="button">Eventos Bici-Tour</a></p>
-				</div>
-			</div>
-		</div>
-		<div class="carousel-item">
-			<img class="second-slide"
-				src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-				alt="Second slide">
-			<div class="container">
-				<div class="carousel-caption">
-					<h1>Another example headline.</h1>
-					<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-						gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-					<p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-				</div>
-			</div>
-		</div>
-		<div class="carousel-item">
-			<img class="third-slide"
-				src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-				alt="Third slide">
-			<div class="container">
-				<div class="carousel-caption text-right">
-					<h1>One more for good measure.</h1>
-					<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-						gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-					<p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
 				</div>
 			</div>
 		</div>
@@ -58,6 +51,36 @@
 	</a>
 </div>
 {% endblock carrucel %}
+
+
+{% block estados_list %}
+<div class="info-block">
+	<h1 style="text-align: center">Estados</h1>
+</div>
+<div class="scrolling-wrapper">
+	{% for estados in estado %}
+	<div class="card img-fluid text-center" style="width:200px">
+
+		{% if estados.image %}
+		<img src="{{estados.image.url}}" alt="Imamen de estado" style="width: 100%;min-height: 150px;">
+		{% else %}
+		<img class="card-img-top" src="{% static 'images/tour-bicicleta-mexico.jpg' %}" alt="Card image"
+			style="width:100%;min-height: 150px">
+		{% endif %}
+
+		<div class="card-img-overlay">
+			<a href="#" class="">
+				<h4 class="card-title estados-text">{{estados.nombre}}</h4>
+			</a>
+		</div>
+	</div>
+	{% empty %}
+	<h2>No hay estados registrados</h2>
+	{% endfor %}
+</div>
+
+{% endblock estados_list %}
+
 
 {% block content %}
 <div class="container">
@@ -85,7 +108,8 @@
 					</p>
 					<div class="d-flex justify-content-between align-items-center">
 						<div class="btn-group">
-							<a href="" class="btn btn-outline-primary" style="width: 120px">Ver evento</a>
+							<a href="{% url 'Detalles' id=evento.id %}" class="btn btn-outline-primary"
+								style="width: 120px">Ver evento</a>
 						</div>
 						<small class="text-muted">Modificado: {{ evento.updated }}</small>
 					</div>
