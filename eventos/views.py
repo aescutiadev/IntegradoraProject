@@ -28,9 +28,9 @@ def contacto(request):
 		register_form = ContactoForm(data=request.POST)
 		if(register_form.is_valid()):
 			try:         
-				nombre = request.POST.get("nombre",'')
-				correo = request.POST.get("correo",'')
-				tel = request.POST.get("tel",'')
+				nombre = request.POST.get("nombre")
+				correo = request.POST.get("correo")
+				tel = request.POST.get("tel")
 				comentario = request.POST.get("comentario",'')
 				#Se crea una instancia comentario que construira el nuevo registro 
 				nuevoComentario = Comentario() 

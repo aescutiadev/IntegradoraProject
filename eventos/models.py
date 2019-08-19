@@ -49,11 +49,11 @@ class Estados(models.Model):
 class Comentario(models.Model):
 	"""Model definition for Comentarios."""
 	id = models.AutoField(primary_key=True,verbose_name="Clave")
-	nombre = models.CharField(verbose_name="Nombre", max_length=50)
-	correo = models.CharField(verbose_name="Correo", max_length=100)
-	tel = models.CharField(verbose_name="Teléfono", max_length=50)
+	nombre = models.CharField(verbose_name="Nombre", max_length=50,blank=False,null=False)
+	correo = models.CharField(verbose_name="Correo", max_length=100,blank=False,null=False)
+	tel = models.CharField(verbose_name="Teléfono", max_length=50,blank=False,null=False)
 	created = models.DateTimeField(auto_now_add=True,verbose_name="Registrado")
-	coment = models.TextField(verbose_name="Comentarios")
+	coment = models.TextField(verbose_name="Comentarios",blank=False,null=False)
 
 
 	class Meta:
