@@ -10,9 +10,11 @@
 				<img class="text-center" src="{{evento.imagen.url}}" alt="{{evento.name}}"
 					style="margin: 2%;max-width: 90%; max-height: 400px;padding: 10px"><br>
 			</div>
-			<div class="col-md-auto" style="margin:auto;padding: 10px;">
-				<!-- Tabla en donde se visualiza el contenido -->
-				<table class="table table-responsive table-hover" style="margin:auto">
+			<div class="col-sm-auto" style="margin:auto;padding: 10px;">
+
+				<!-- Tabla en donde se visualiza el contenido 
+					==========================================-->
+				<table class="table table-responsive table-hover" style="width:auto;height: auto;margin:auto">
 					<tr style="border-top: none">
 						<td colspan="2">
 							<h4 class="card-title">{{evento.name }}</h4>
@@ -48,6 +50,7 @@
 					</tr>
 					<tr>
 						<td class="text-center" colspan="2">
+
 							<!-- Campo de visualización de Google Maps -->
 							<div style="overflow:hidden;max-width: 1000px;position: relative;">
 								<iframe width="100%" height="440" src="https://maps.google.com/maps?width=auto&amp;height=440&amp;hl=en&amp;q={{evento.city}}%2C{{evento.estado}}%2C{{evento.punto_inicio}}+(Mapita)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
@@ -60,10 +63,12 @@
 										</a>
 									</small>
 								</div>
-							</div><br />
+							</div> <!-- / Fin del Campo de visualización de Google Maps -->
+							<br />
 						</td>
 					</tr>
 					<tr>
+						<!-- Pequeña validación si el costo es 0.0 mostrará gratis, si no, mostrará el costo -->
 						<th scope="row">Costo:</th>
 						{% if evento.costo == 0.0 %}
 						<td>Gratis</td>
@@ -71,8 +76,7 @@
 						<td>${{evento.costo}}</td>
 						{% endif %}
 					</tr>
-				</table>
-				<!-- Cierre de tabla de visualización de contenidos -->
+				</table> <!-- Cierre de tabla de visualización de contenidos -->
 			</div>
 		</div>
 	</div>

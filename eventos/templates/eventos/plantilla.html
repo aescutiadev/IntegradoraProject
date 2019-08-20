@@ -18,6 +18,8 @@
 	<div id="contenedor_carga">
 		<div id="carga"></div>
 	</div>
+	<!-- HEADER o ENCABEZADO 
+		====================-->
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 			<img src="{% static 'images/logo2png.png' %}" style="max-width: 300px;max-height: 50px" alt="LOGO">
@@ -39,47 +41,58 @@
 				</form>
 			</div>
 		</nav>
-	</header>
+	</header> <!-- /Termina el contenido del encabezado -->
+	
+	<!-- Visualización del contenído principal de la página
+		==================================================== -->
 
 	<main role="main" style="background-color: rgb(248, 248, 248)">
 
-
+		<!-- Bloque para el carrucel de imágenes del template event_list -->
 		{% block carrucel %}
 
 		{% endblock carrucel %}
 
+		<!-- Barra de navegación -->
+		<div class="breadcrumb-line" style="margin-top: 2%;margin-bottom: 1%">
+			<ul class="breadcrumb" style="background-color: rgb(248, 248, 248);border: 1px solid rgb(212, 212, 212)">
+				<li>
+					<a href="{%url 'Principal'%}" style="text-decoration: none">
+						{% if request.path == '/'%}
+						Principal
+						{% else %}
+						Principal{{request.path}}
+						{% endif %}
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- /Barra de navegación -->
 
-		<!-- Marketing messaging and featurettes
-				================================================== -->
-		<!-- Wrap the rest of the page in another container to center all the content. -->
-
+		<!-- Contenedor -->
 		<div class="container marketing">
 
 			<!-- Contenido destacado -->
-
 			{% block destacado %}
 
 			{% endblock destacado %}
 
-			<!-- Estados -->
+			<!-- Línea de separación del contenido -->
+			<hr class="featurette-divider">
 
+			<!-- Visualización de la lista de eventos de forma horizontal con scroll -->
 			{% block estados_list %}
 
 			{% endblock estados_list %}
 
-			<!-- START THE FEATURETTES -->
-
-			<hr class="featurette-divider">
-
+			<!-- CONTENIDO -->
 			{% block content %}
 
 			{% endblock content %}
 
-			<!-- /END THE FEATURETTES -->
+		</div><!-- /Contenedor -->
 
-		</div><!-- /.container -->
-
-		<!-- FOOTER -->
+		<!-- FOOTER o PIE DE PÁGINA -->
 		<footer class="page-footer font-small unique-color-dark" style="background-color: #fff;margin-bottom: -50px">
 			<div class="container text-center text-md-left mt-5">
 
@@ -104,12 +117,6 @@
 						<p>
 							<a href="{% url 'Principal' %}">Lista de eventos</a>
 						</p>
-						<p>
-							<a name="evento_gratis" href="">Eventos gratuitos</a>
-						</p>
-						<p>
-							<a name="evento_pago" href="">Eventos de pago</a>
-						</p>
 
 					</div>
 
@@ -125,36 +132,26 @@
 						<p>
 							<i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
 
-					</div>
-					<!-- /Grid column -->
+					</div> <!-- /Grid column -->
 
-				</div>
-				<!-- /Grid row -->
+				</div> <!-- /Grid row -->
 
-			</div>
-			<!-- Footer Links -->
+			</div> <!-- /Footer Links -->
 
 			<!-- Copyright -->
 			<div class="footer-copyright text-center py-3">© 2019 Copyright:
 				Equipo BiciTour TI 9C
-			</div>
-			<!-- /Copyright -->
+			</div> <!-- /Copyright -->
 
-		</footer>
-		<!-- /FOOTER -->
-	</main>
+		</footer> <!-- /FOOTER -->
+	</main> <!-- /Termina el contenido de la página -->
+
 	<!-- My scripts -->
 	<script src="{% static 'js/script.js' %}"></script>
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-	</script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -8,12 +8,16 @@ from django.urls import reverse
 
 
 def principal(request):
+	# Hace una obtención de la etiqueda input cuyo atributo sea name = "q"
     query = request.GET.get('q', '')
+	# Se valida que no esté vacio
     if query == "":
+		# Si no se escribe nada obtendrá la lista de todos los eventos
         event = Eventos.objects.all()
     else:
+		# Si se escribe obtendrá los eventos cuyo nombre tenga las letras que se escribieron en el input
         event = Eventos.objects.filter(name__contains=query)
-		
+	# Obtiene la lista de eventos	
     estado = Estados.objects.all()
     return render(request, 'eventos/event_list.html' and 'eventos/event_destacados.html', {'event': event, 'estado': estado})
 
@@ -45,12 +49,13 @@ def contacto(request):
 					nuevoComentario.correo = correo
 					nuevoComentario.tel = tel           
 					nuevoComentario.coment = comentario  
-					#Se almacena el nuevo comentrio en la tabla de la base de datos   
+					#Se almacena el nuevo comentario en la tabla de la base de datos   
 					nuevoComentario.save()
-					#Si tido es correcto se redirecciona a la página de comentario y se indica que todo es correcto   Contacto es el nombre de la url 
+					#Si tido es correcto se redirecciona a la página de contacto y se indica que todo es correcto
 					messages.success(request, 'Su mensaje se envio') 
 					return redirect("/contacto/")
 				else:
+					# Si algún campo está vacio no se podrá grabar en la base de datos y se indica con un mensaje de aviso
 					messages.error(request, 'Todos los campos deben de ser llenados')
 					return redirect("/contacto/")           
 			except:
@@ -62,5 +67,7 @@ def contacto(request):
 
 
 def details(request, id):
+	# Obtiene el id de un evento y hace la validación: Si hay toma el id direcciona a la página de event_detalil para ver los demás campos del evento en la base de datos
+	# Si no arroja el error de página no encontrada (404)
     evento = get_object_or_404(Eventos, id=id)
     return render(request, 'eventos/event_detail.html', {'evento': evento})
