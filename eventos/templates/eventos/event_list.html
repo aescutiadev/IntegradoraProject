@@ -1,7 +1,9 @@
 {% extends 'eventos/plantilla.html' %}
 
 {% load static %}
-
+<!-- 
+	Bloque del Carrucel de imágenes principal
+-->
 {% block carrucel %}
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
@@ -16,12 +18,12 @@
 				<div class="carousel-caption text-left">
 					<h1 class="event-title">Bici-Tour</h1>
 					<p class="event-description">Déjanos llevarte por las calles de las ciudades
-												 y recorrer su belleza, en un paseo guiado donde te 
-												 acompañaremos a conocer algunos de los puntos más 
-												 emblemáticos del país. Disfruta de la belleza 
-												 cotidiana mientras pedaleas y descubre a través de 
-												 la charla de nuestros guías la historia que edificaciones 
-												 y monumentos tienen guardados.</p>
+						y recorrer su belleza, en un paseo guiado donde te
+						acompañaremos a conocer algunos de los puntos más
+						emblemáticos del país. Disfruta de la belleza
+						cotidiana mientras pedaleas y descubre a través de
+						la charla de nuestros guías la historia que edificaciones
+						y monumentos tienen guardados.</p>
 				</div>
 			</div>
 		</div>
@@ -30,9 +32,9 @@
 			<div class="container">
 				<div class="carousel-caption">
 					<h1 class="event-title">México</h1>
-					<p class="event-description">Quizás eres un viajero en nuestro país, o quizás no, 
-												pero ha llegado el momento en que te aventures a conocer México
-												en un tour en bicicleta por la ciudad del estado que tu elijas.</p>
+					<p class="event-description">Quizás eres un viajero en nuestro país, o quizás no,
+						pero ha llegado el momento en que te aventures a conocer México
+						en un tour en bicicleta por la ciudad del estado que tu elijas.</p>
 				</div>
 			</div>
 		</div>
@@ -58,41 +60,50 @@
 </div>
 {% endblock carrucel %}
 
-
+<!-- 
+	Bloque de scorll horizontal de estados
+-->
 {% block estados_list %}
 <div class="info-block">
 	<h1 style="text-align: center">Estados</h1>
 </div>
 <div class="scrolling-wrapper">
-	{% for estados in estado %}
-	<div class="card img-fluid text-center" style="width:200px">
+	{% if estado %}
+		{% for estados in estado %}
+		<div class="card img-fluid text-center" style="width:200px">
 
-		{% if estados.image %}
-		<img src="{{estados.image.url}}" alt="Imamen de estado" style="width: 100%;min-height: 150px;">
-		{% else %}
-		<img class="card-img-top" src="{% static 'images/tour-bicicleta-mexico.jpg' %}" alt="Card image"
-			style="width:100%;min-height: 150px">
-		{% endif %}
+			{% if estados.image %}
+			<img src="{{estados.image.url}}" alt="Imamen de estado" style="width: 100%;min-height: 150px;">
+			{% else %}
+			<img class="card-img-top" src="{% static 'images/tour-bicicleta-mexico.jpg' %}" alt="Card image"
+				style="width:100%;min-height: 150px">
+			{% endif %}
 
-		<div class="card-img-overlay">
-			<a href="#" class="">
-				<h4 class="card-title estados-text">{{estados.nombre}}</h4>
-			</a>
+			<div class="card-img-overlay">
+				<!-- Obtengo el nombre de la url y el campo que tengo asignado en views para filtrarlo -->
+				<a href="{% url 'filtrar_estado' estados.nombre %}" class="" name="filtrar_estado">
+					<h4 class="card-title estados-text">{{estados.nombre}}</h4>
+				</a>
+			</div>
 		</div>
-	</div>
-	{% empty %}
-	<h2>No hay estados registrados</h2>
-	{% endfor %}
+		{% endfor %}
+	{% else %}
+		<h2>No hay estados registrados</h2>
+	{% endif %}
 </div>
 
 {% endblock estados_list %}
-
-
+<!-- 
+	/Bloque de estados
+-->
+<!-- Bloque de contenido -->
 {% block content %}
 <div class="container">
-
+		{% if event %}
+		<div class="info-block">
+			<h1 style="text-align: center">Eventos</h1>
+		</div>
 	<div class="row">
-
 		{% for evento in event %}
 		<div class="col-md-6">
 			<div class="card mb-4 shadow-sm">
@@ -117,12 +128,17 @@
 							<a href="{% url 'Detalles' id=evento.id %}" class="btn btn-outline-primary"
 								style="width: 120px">Ver evento</a>
 						</div>
-						<small class="text-muted">Modificado: {{ evento.updated }}</small>
+						<small class="text-muted">Agregado: {{ evento.created }}</small>
 					</div>
 				</div>
 			</div>
 		</div>
 		{% endfor %}
+		{% else %}
+		<div class="info-block">
+			<h1 style="text-align: center">No hay eventos registrados</h1>
+		</div>
+		{% endif %}
 	</div>
 </div>
 {% endblock content %}

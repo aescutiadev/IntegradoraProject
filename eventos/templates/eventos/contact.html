@@ -9,6 +9,25 @@
 
 {% block content %}
 
+{% if messages %}
+	<ul class="messages">
+		{% for message in messages %}
+		{%if message.tags == 'error' %}
+		<div class="alert alert-danger" role="alert">
+			<li{% if message.tags %} class="" {% endif %}>{{ message }}</li>
+		</div>
+		{%endif %}
+		{%if message.tags == 'success' %}
+		<div class="alert alert-success" role="alert">
+			<li{% if message.tags %} class="" {% endif %}>{{ message }}</li>
+		</div>
+		{%endif %}
+
+		{% endfor %}
+	</ul>
+{% endif %}
+
+
 <div class="container contact-form">
 	<form method="POST"> 
 		{% csrf_token %}
@@ -16,16 +35,16 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<input type="text" name="nombre" class="form-control" placeholder="Tu nombre*" value="" />
+					<input type="text" name="nombre" class="form-control" placeholder="Tu nombre*" value="" required/>
 				
 				</div>
 				<div class="form-group">
-					<input type="text" name="correo" class="form-control" placeholder="Tu correo*" value="" />
+					<input type="text" name="correo" class="form-control" placeholder="Tu correo*" value="" required />
 				
 				</div>
 				<div class="form-group">
 					<input type="text" name="tel" class="form-control" placeholder="Número de teléfono/celular *"
-						value="" />
+						value="" required/>
 		
 				</div>
 				<div class="form-group">
@@ -35,7 +54,7 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					<textarea name="comentario" class="form-control" placeholder="Tu mensaje *"
-						style="width: 100%; height: 150px;"></textarea>
+						style="width: 100%; height: 150px;" ></textarea>
 					
 				</div>
 			</div>
