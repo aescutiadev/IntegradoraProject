@@ -1,31 +1,35 @@
 {% extends 'eventos/plantilla.html' %}
 
 {% load static %}
+<!------ Include the above in your HEAD tag ---------->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+
 
 
 {% block content %}
 
+<!-- 
+	Validación de formulario 
+-->
 {% if messages %}
 	<ul class="messages">
 		{% for message in messages %}
 		{%if message.tags == 'error' %}
 		<div class="alert alert-danger" role="alert">
-			<li{% if message.tags %} class="" {% endif %}>{{ message }}</li>
+			<li {% if message.tags %} class="" {% endif %} style="list-style: none" ><i class="fas fa-info-circle"></i> {{ message }}</li>
 		</div>
 		{%endif %}
 		{%if message.tags == 'success' %}
 		<div class="alert alert-success" role="alert">
-			<li{% if message.tags %} class="" {% endif %}>{{ message }}</li>
+			<li {% if message.tags %} class="" {% endif %}>{{ message }}</li>
 		</div>
 		{%endif %}
 
 		{% endfor %}
 	</ul>
-{% endif %}
+{% endif %} <!-- /Fin de validación -->
 
 
 <div class="container contact-form">

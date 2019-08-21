@@ -18,10 +18,10 @@
 				<div class="carousel-caption text-left">
 					<h1 class="event-title">Bici-Tour</h1>
 					<p class="event-description">Déjanos llevarte por las calles de las ciudades
-						y recorrer su belleza, en un paseo guiado donde te
+						y recorrer su belleza en un paseo guiado donde te
 						acompañaremos a conocer algunos de los puntos más
 						emblemáticos del país. Disfruta de la belleza
-						cotidiana mientras pedaleas y descubre a través de
+						cotidiana mientras pedaleas y descubres a través de
 						la charla de nuestros guías la historia que edificaciones
 						y monumentos tienen guardados.</p>
 				</div>
@@ -34,7 +34,7 @@
 					<h1 class="event-title">México</h1>
 					<p class="event-description">Quizás eres un viajero en nuestro país, o quizás no,
 						pero ha llegado el momento en que te aventures a conocer México
-						en un tour en bicicleta por la ciudad del estado que tu elijas.</p>
+						en un tour en bicicleta.</p>
 				</div>
 			</div>
 		</div>
@@ -43,8 +43,7 @@
 			<div class="container">
 				<div class="carousel-caption text-right">
 					<h1 class="event-title">Morelia</h1>
-					<p class="event-description">Morelia es el mejor lugar para andar en bicicleta todos los días se
-						puede dar una visita en el centro de la ciudad en bicicleta</p>
+					<p class="event-description">El centro de Morelia es el mejor lugar para andar en bicicleta, todos los domingos se puede a dar un tour en el centro de la ciudad en un paseo por bicicleta</p>
 				</div>
 			</div>
 		</div>
@@ -112,21 +111,20 @@
 					<h3 style="text-align: center">{{ evento.name }}</h3>
 					<p class="card-text">{{ evento.descripcion|linebreaksbr }}</p>
 					<p class="card-text">
-						<img src="{% static 'icons/ic_date_range_18pt.png' %}" alt=""> {{ evento.date }}
-						<img src="{% static 'icons/ic_query_builder_black_18dp.png' %}" alt=""> {{ evento.hora }}</p>
-					<p class="card-text"><img src="{% static 'icons/ic_room_black_24dp.png' %}" alt="">
+						<i class="far fa-calendar-alt"></i> {{ evento.date }} <i class="far fa-clock"></i> {{ evento.hora }}</p>
+					<p class="card-text"><i class="fas fa-map-marker-alt"></i>
 						{{ evento.city }} {{ evento.estado }}</p>
 					<p class="card-text">
 						{% if evento.costo == 0.0 %}
-						<img src="{% static 'icons/ic_money_off_black_24dp.png' %}" alt=""> Gratis
+						<i class="fas fa-hand-holding-usd"></i> Gratis
 						{% else %}
-						<img src="{% static 'icons/ic_monetization_on_black_24dp.png' %}" alt=""> {{ evento.costo }}
+						<i class="fas fa-hand-holding-usd"></i> {{ evento.costo }}
 						{% endif %}
 					</p>
 					<div class="d-flex justify-content-between align-items-center">
 						<div class="btn-group">
 							<a href="{% url 'Detalles' id=evento.id %}" class="btn btn-outline-primary"
-								style="width: 120px">Ver evento</a>
+								style="width: 150px;height: 40px;padding: 5px;border-radius: 20px"><h5>Ver evento <i class="fas fa-external-link-alt"></i></h6></a>
 						</div>
 						<small class="text-muted">Agregado: {{ evento.created }}</small>
 					</div>

@@ -17,9 +17,10 @@ class AdministrarEstado(admin.ModelAdmin):
 admin.site.register(Estados, AdministrarEstado)
 
 class AdministrarComentarios(admin.ModelAdmin):
-	list_display = ('id','nombre','correo','tel','coment') # Daremos formato a la tabla de alumnos separando en columnas
-	search_fields = ('id','nombre','correo','tel','created') # Agregamos un formulario de busqueda
+	list_display = ('id','nombre','correo','tel','coment','created') # Daremos formato a la tabla de alumnos separando en columnas
+	readonly_fields = ['created'] # Los datos de creación y modificación son sólo lectura
+	search_fields = ('id','nombre','correo','tel') # Agregamos un formulario de busqueda
 	date_hierarchy = 'created' # Agregamos busqueda por fecha
-	list_filter = ('created', 'id') # Agregamos filtro lateral
+	list_filter = ('created', 'correo') # Agregamos filtro lateral
 
 admin.site.register(Comentario, AdministrarComentarios)

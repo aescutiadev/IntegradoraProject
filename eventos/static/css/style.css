@@ -15,7 +15,7 @@ body {
 
 /* PRELOAD */
 #contenedor_carga {
-	background-color: rgba(250, 240, 245, 0.5);
+	background-color: rgba(250, 240, 245, 0.3);
 	height: 100%;
 	width: 100%;
 	margin-top: -5%;
@@ -136,7 +136,7 @@ body {
 	/*text-shadow: 0px 0px 0px 5px #000;*/
 }
 
-/* MARKETING CONTENT
+/* PRINCIPAL CONTENT
   -------------------------------------------------- */
 /* block the infomation for highlight content */
 .info-block {
@@ -205,7 +205,7 @@ body {
 	background: #fff;
 	margin-top: 10%;
 	margin-bottom: 5%;
-	width: 70%;
+	width: 100%;
 }
 
 .contact-form .form-control {
@@ -265,6 +265,7 @@ body {
 footer {
 	padding-top: 3rem;
 	padding-bottom: 3rem;
+	color: #fff;
 }
 
 footer p {

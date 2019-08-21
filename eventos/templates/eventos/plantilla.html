@@ -9,6 +9,7 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/9ec26bb858.js"></script>
 	<!-- Local Project CSS -->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<title>BiciTour</title>
@@ -54,20 +55,19 @@
 		{% endblock carrucel %}
 
 		<!-- Barra de navegación -->
-		<div class="breadcrumb-line" style="margin-top: 2%;margin-bottom: 1%">
-			<ul class="breadcrumb" style="background-color: rgb(248, 248, 248);border: 1px solid rgb(212, 212, 212)">
+		<div class="breadcrumb-line" style="margin: 2%">
+			<ul class="breadcrumb" style="background-color: rgb(248, 248, 248);border: 1px solid rgb(212, 212, 212);border-radius: 20px">
 				<li>
 					<a href="{%url 'Principal'%}" style="text-decoration: none">
 						{% if request.path == '/'%}
-						Principal
+						<i class="fas fa-home"></i> /Principal
 						{% else %}
-						Principal{{request.path}}
+						<i class="fas fa-reply"></i> Principal{{request.path}}
 						{% endif %}
 					</a>
 				</li>
 			</ul>
-		</div>
-		<!-- /Barra de navegación -->
+		</div><!-- /Barra de navegación -->
 
 		<!-- Contenedor -->
 		<div class="container marketing">
@@ -93,7 +93,7 @@
 		</div><!-- /Contenedor -->
 
 		<!-- FOOTER o PIE DE PÁGINA -->
-		<footer class="page-footer font-small unique-color-dark" style="background-color: #fff;margin-bottom: -50px">
+		<footer class="page-footer font-small bg-dark" style="margin-bottom: -50px">
 			<div class="container text-center text-md-left mt-5">
 
 				<!-- Grid row -->
@@ -105,7 +105,7 @@
 						<!-- Content -->
 						<h6 class="text-uppercase font-weight-bold">BiciTour</h6>
 						<hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-						<p>BiciTour es para la visualizacion de eventos etc etc</p>
+						<p>Somos una empresa que se dedica a la creación de recorridos en bicicleta mas solicitada en el país</p>
 						<!-- /Content -->
 					</div>
 					<!-- Grid column -->

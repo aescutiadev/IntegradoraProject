@@ -33,7 +33,7 @@ class Estados(models.Model):
 	"""Model definition for Estados."""
 	# TODO: Define fields here
 	nombre = models.CharField(max_length=50, verbose_name="Estado")
-	image = models.ImageField(upload_to='estado', height_field=None, width_field=None, max_length=None,blank=True,null=True)
+	image = models.ImageField(upload_to='estado', height_field=None, width_field=None, max_length=None,blank=True,null=True,verbose_name="Imagen")
 	created = models.DateTimeField(auto_now_add=True,verbose_name="Creación") # Fecha y tiempo
 	updated = models.DateTimeField(auto_now_add=True,verbose_name="Modificado")
 	class Meta:
