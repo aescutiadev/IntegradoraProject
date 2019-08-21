@@ -18,12 +18,12 @@
 		{% for message in messages %}
 		{%if message.tags == 'error' %}
 		<div class="alert alert-danger" role="alert">
-			<li {% if message.tags %} class="" {% endif %} style="list-style: none" ><i class="fas fa-info-circle"></i> {{ message }}</li>
+			<li {% if message.tags %} class="" {% endif %} style="list-style: none"><i class="fas fa-info-circle"></i> {{ message }}</li>
 		</div>
 		{%endif %}
 		{%if message.tags == 'success' %}
 		<div class="alert alert-success" role="alert">
-			<li {% if message.tags %} class="" {% endif %}>{{ message }}</li>
+			<li {% if message.tags %} class="" {% endif %} style="list-style: none"><i class="fas fa-check-circle"></i> {{ message }}</li>
 		</div>
 		{%endif %}
 
@@ -47,8 +47,8 @@
 				
 				</div>
 				<div class="form-group">
-					<input type="text" name="tel" class="form-control" placeholder="Número de teléfono/celular *"
-						value="" required/>
+					<input type="text" name="tel" class="form-control" placeholder="Número de teléfono/celular"
+						value=""/>
 		
 				</div>
 				<div class="form-group">

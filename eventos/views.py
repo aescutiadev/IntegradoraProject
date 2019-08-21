@@ -45,7 +45,7 @@ def contacto(request):
                 tel = request.POST.get("tel", "")
                 comentario = request.POST.get("comentario", "")
                 # Validamos que los campos estén vacios
-                if nombre != "" and correo != "" and tel != "" and comentario != "":
+                if nombre != "" and correo != "" and comentario != "":
                     # Se crea una instancia comentario que construira el nuevo registro
                     nuevoComentario = Comentario()
                     # Se asignan los campos los valores recuperados del formulario
